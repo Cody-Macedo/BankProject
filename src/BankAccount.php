@@ -16,7 +16,7 @@ class BankAccount
 
     public function getBalance(): int
     {
-       return $this->balance;
+        return $this->balance;
     }
 
     public function addCredit(int $nb)
@@ -27,7 +27,11 @@ class BankAccount
 
     public function checkCredit($nb): bool
     {
-        return is_int($nb);
+        try {
+            return is_int($nb);
+        } catch (TypeError $e) {
+            return $e;
+        }
     }
 
 }
